@@ -1,6 +1,5 @@
 require("dotenv").config();
 const express = require('express');
-const path = require("path");
 const app = express();
 const bodyParser = require('body-parser')
 const port = 3333;
@@ -11,12 +10,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}))
 
 app.get('/', (req, res) => {
-  res.send('Welcome to spotify fake POC!');
+  res.send('Welcome to CI/CD  POC!');
 });
 
-app.use(`/songs`,router);
+app.use(`/info`,router);
 
-app.use(express.static(path.join(`${__dirname}`, "./storage")));
 
 
 

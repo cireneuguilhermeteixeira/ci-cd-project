@@ -27,3 +27,9 @@ In this challenge, you will be required to set up a Continuous Integration and C
 - Additional Information:
 
 You may use any Node.js application for this challenge. Ensure that the application has a build script and unit tests. You may use any Jenkins plugins required to complete the challenge. Ensure that all configuration files are properly documented, and best practices are followed.
+
+
+
+
+Push project in github
+brew install jenkins
