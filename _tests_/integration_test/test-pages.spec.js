@@ -1,30 +1,30 @@
-var expect  = require('chai').expect;
-var request = require('request');
+/* eslint-disable no-undef */
+const { expect } = require('chai');
+const request = require('request');
 
-describe('Status and content', function() {
-    describe ('Main page', function() {
-        it('status', function(done){
-            request('http://localhost:3333/', function(error, response, body) {
-                expect(response.statusCode).to.equal(200);
-                done();
-            });
-        });
-
-        it('content', function(done) {
-            request('http://localhost:3333/' , function(error, response, body) {
-                expect(body).to.equal('Welcome to CI/CD  POC!');
-                done();
-            });
-        });
+describe('Status and content', () => {
+  describe('Main page', () => {
+    it('status', (done) => {
+      request('http://localhost:3333/', (error, response) => {
+        expect(response.statusCode).to.equal(200);
+        done();
+      });
     });
 
-    describe ('About page', function() {
-        it('status', function(done){
-            request('http://localhost:3333/about', function(error, response, body) {
-                expect(response.statusCode).to.equal(404);
-                done();
-            });
-        });
-
+    it('content', (done) => {
+      request('http://localhost:3333/', (error, response, body) => {
+        expect(body).to.equal('Welcome to CI/CD  POC!');
+        done();
+      });
     });
+  });
+
+  describe('About page', () => {
+    it('status', (done) => {
+      request('http://localhost:3333/about', (error, response) => {
+        expect(response.statusCode).to.equal(404);
+        done();
+      });
+    });
+  });
 });
