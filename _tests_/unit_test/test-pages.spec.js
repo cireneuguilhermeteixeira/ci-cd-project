@@ -1,29 +1,11 @@
 var expect  = require('chai').expect;
+const srvc = require('../../app/service');
 
-describe('Status and content', function() {
-    describe ('Main page', function() {
-        it('status', function(done){
-            request('http://localhost:3333/', function(error, response, body) {
-                expect(response.statusCode).to.equal(200);
-                done();
-            });
-        });
 
-        it('content', function(done) {
-            request('http://localhost:3333/' , function(error, response, body) {
-                expect(body).to.equal('Welcome to CI/CD  POC!');
-                done();
-            });
-        });
-    });
-
-    describe ('About page', function() {
-        it('status', function(done){
-            request('http://localhost:3333/about', function(error, response, body) {
-                expect(response.statusCode).to.equal(404);
-                done();
-            });
-        });
-
-    });
+describe ('Main test', function() {
+    it('Should test', function(done){
+        const formatedDate = srvc.getCurrentDateFormated("2023/03/24");
+        expect(formatedDate).to.equal("March 24, 2023 - 12:00:00");
+        done();
+    });        
 });
