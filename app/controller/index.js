@@ -1,3 +1,4 @@
+const srvc = require('../service');
 
 
 exports.getInfo = async (req, resp) => {
@@ -5,6 +6,6 @@ exports.getInfo = async (req, resp) => {
     {
         status: `ok`,
         message: `This endpoint should return some information`,
-        currentDate: new Date()
-    }
-    );}
+        currentDate:  srvc.getCurrentDateFormated(new Date())
+    });
+}

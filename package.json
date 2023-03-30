@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "test": "./node_modules/.bin/mocha integration_test",
-    "unit-test": "./node_modules/.bin/mocha integration_test"
+    "test": "./node_modules/.bin/mocha _tests_/*",
+    "unit-test": "./node_modules/.bin/mocha _tests_/unit_test"
   },
   "author": "Cireneu Araujo",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "http": "^0.0.1-security",
+    "moment": "^2.29.4",
     "nodemon": "^2.0.20",
     "path": "^0.12.7"
   },
