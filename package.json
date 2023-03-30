@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon index.js",
     "test": "./node_modules/.bin/mocha _tests_/*",
-    "unit-test": "./node_modules/.bin/mocha _tests_/unit_test"
+    "unit-test": "./node_modules/.bin/mocha _tests_/unit_test",
+    "lint": "npx eslint index.js _tests_/** app/**"
   },
   "author": "Cireneu Araujo",
   "license": "ISC",
