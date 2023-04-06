@@ -18,6 +18,5 @@ app.get('/', (req, res) => {
 app.use('/info', router);
 
 app.listen(port, () => {
-  // eslint-disable-next-line no-console
   console.log(`App listening at http://localhost:${port}`);
 });
