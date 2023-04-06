@@ -12,8 +12,6 @@
   "author": "Cireneu Araujo",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.27.2",
-    "axios-http-adapter": "^0.0.3",
     "body-parser": "^1.20.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
