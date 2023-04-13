@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    tools {nodejs "node"}
+
+    stages {
+        stage ('Install Dependencies Stage') {
+
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage ('Testing Stage') {
+
+            steps {
+                sh 'npm run unit-test'
+                
+            }
+        }
+
+
+        stage ('Deployment Stage') {
+            steps {
+                sh 'tar czf my_project$BUILD_NUMBER.tar.gz node_modules index.js app'
+            }
+        }
+    }
+}
