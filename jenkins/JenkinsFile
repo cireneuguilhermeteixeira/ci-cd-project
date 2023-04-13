@@ -1,19 +1,20 @@
 pipeline {
     agent any
-    tools {nodejs "node"}
-
+    tools {
+        nodejs "NodeJs"
+    }
     stages {
         stage ('Install Dependencies Stage') {
 
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
 
         stage ('Testing Stage') {
 
             steps {
-                sh 'npm run unit-test'
+                bat 'npm run unit-test'
                 
             }
         }
@@ -21,7 +22,7 @@ pipeline {
 
         stage ('Deployment Stage') {
             steps {
-                sh 'tar czf my_project$BUILD_NUMBER.tar.gz node_modules index.js app'
+                bat 'tar czf my_project$BUILD_NUMBER.tar.gz node_modules index.js app'
             }
         }
     }
