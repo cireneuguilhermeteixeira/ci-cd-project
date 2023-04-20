@@ -7,7 +7,7 @@ pipeline {
         stage ('Deliver for development') {
 
             steps {
-                bat './jenkins/scripts/deliver-for-development.sh'
+                bat 'bash ./jenkins/scripts/deliver-for-development.sh'
              
             }
         }
@@ -15,7 +15,7 @@ pipeline {
         stage ('Deliver for Stage') {
 
              steps {
-                bat './jenkins/scripts/deliver-for-stage.sh'
+                bat 'bash ./jenkins/scripts/deliver-for-stage.sh'
             
             }
         }
@@ -25,7 +25,7 @@ pipeline {
 
            steps {
                 input message: 'Want to start deploy to production? (Click "Proceed" to continue)'
-                bat './jenkins/scripts/deliver-for-production.sh'
+                bat 'bash ./jenkins/scripts/deliver-for-production.sh'
     
             }
         }
