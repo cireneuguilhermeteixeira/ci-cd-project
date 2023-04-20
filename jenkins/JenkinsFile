@@ -21,6 +21,8 @@ pipeline {
           
            steps {
                 input message: 'Want to start deploy to production? (Click "Proceed" to continue)'
+                bat 'git checkout main'
+                bat 'git pull origin develop'
                 bat 'npm install'
                 bat 'npm run unit-test'
                 bat 'tar czf my_project$BUILD_NUMBER.tar.gz node_modules index.js app'
