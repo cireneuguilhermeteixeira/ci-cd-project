@@ -4,25 +4,29 @@ pipeline {
         nodejs "NodeJs"
     }
     stages {
-        stage ('Install Dependencies Stage') {
+        stage ('Deliver for development') {
 
             steps {
-                bat 'npm install'
+                bat './jenkins/scripts/deliver-for-development.sh'
+             
             }
         }
 
-        stage ('Testing Stage') {
+        stage ('Deliver for Stage') {
 
-            steps {
-                bat 'npm run unit-test'
-                
+             steps {
+                bat './jenkins/scripts/deliver-for-stage.sh'
+            
             }
         }
 
 
-        stage ('Deployment Stage') {
-            steps {
-                bat 'tar czf my_project$BUILD_NUMBER.tar.gz node_modules index.js app'
+        stage ('Deployment Production') {
+
+           steps {
+                input message: 'Want to start deploy to production? (Click "Proceed" to continue)'
+                bat './jenkins/scripts/deliver-for-production.sh'
+    
             }
         }
     }
