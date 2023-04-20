@@ -11,7 +11,7 @@ pipeline {
                 bat 'npm install'
                 bat 'npm run unit-test'
                 bat 'tar czf my_project$BUILD_NUMBER.tar.gz node_modules index.js app'
-                build job: 'ci-cd-prod/main', parameters: [string(name: 'param1', value:'val1')], wait: false
+                build job: 'ci-cd-prod', parameters: [string(name: 'param1', value:'val1')], wait: false
 
             }
         }
