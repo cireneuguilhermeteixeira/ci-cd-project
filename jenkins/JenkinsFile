@@ -22,6 +22,8 @@ pipeline {
            steps {
                 input message: 'Want to start deploy to production? (Click "Proceed" to continue)'
                 bat 'git checkout main'
+                bat 'git config --global user.email "jenkins@email.com"'
+                bat 'git config --global user.name "Jenkins User"'
                 bat 'git pull origin develop'
                 bat 'npm install'
                 bat 'npm run unit-test'
