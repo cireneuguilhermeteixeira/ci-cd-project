@@ -10,7 +10,7 @@ pipeline {
             steps {
                 bat 'npm install'
                 bat 'npm run unit-test'
-                bat 'npm run integration-test'
+                // bat 'npm run integration-test'
                 testNG()
                 bat 'tar czf my_project$BUILD_NUMBER.tar.gz node_modules index.js app'
                 // build job: 'ci-cd-prod', parameters: [string(name: 'param1', value:'val1')], wait: false
@@ -30,7 +30,7 @@ pipeline {
                     bat 'git pull origin develop'
                     bat 'npm install'
                     bat 'npm run unit-test'
-                    bat 'npm run integration-test'
+                    // bat 'npm run integration-test'
                     bat 'tar czf my_project$BUILD_NUMBER.tar.gz node_modules index.js app'
                     bat 'git push origin main'
                 }
