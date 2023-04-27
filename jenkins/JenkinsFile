@@ -6,27 +6,32 @@ pipeline {
     stages {
         stage ('Deliver for development') {
 
+           
             steps {
-                bat 'bash ./jenkins/scripts/deliver-for-development.sh'
-             
+                bat 'npm install'
+                bat 'npm run unit-test'
+                bat 'npm run integration-test'
+                bat 'tar czf my_project$BUILD_NUMBER.tar.gz node_modules index.js app'
+                // build job: 'ci-cd-prod', parameters: [string(name: 'param1', value:'val1')], wait: false
+
             }
         }
-
-        stage ('Deliver for Stage') {
-
-             steps {
-                bat 'bash ./jenkins/scripts/deliver-for-stage.sh'
-            
-            }
-        }
-
 
         stage ('Deployment Production') {
 
+          
            steps {
                 input message: 'Want to start deploy to production? (Click "Proceed" to continue)'
-                bat 'bash ./jenkins/scripts/deliver-for-production.sh'
-    
+                bat 'git checkout main'
+                bat 'git config --global user.email "jenkins@email.com"'
+                bat 'git config --global user.name "Jenkins User"'
+                bat 'git pull origin develop'
+                bat 'npm install'
+                bat 'npm run unit-test'
+                bat 'npm run integration-test'
+                bat 'tar czf my_project$BUILD_NUMBER.tar.gz node_modules index.js app'
+                bat 'git push origin develop'
+
             }
         }
     }
