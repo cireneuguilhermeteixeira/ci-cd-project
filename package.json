@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "test": "./node_modules/.bin/mocha _tests_/*",
+    "dev": "node index.js",
+    "integration-test": "node ./node_modules/mocha/bin/mocha _tests_/integration_test",
     "unit-test": "node ./node_modules/mocha/bin/mocha _tests_/unit_test",
     "lint": "npx eslint index.js _tests_/** app/**"
   },
